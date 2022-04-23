@@ -4,7 +4,7 @@ const cors = require("cors");
 const user = require("./routes/user");
 const ip = require("ip");
 // const groupService = require("./services/group_service");
-const io = require('socket.io');
+const io = require('socket.io')();
 
 io.on('connection', socket => {
     socket.broadcast.emit('channel', 'A persion has connected');
