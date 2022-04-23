@@ -10,9 +10,9 @@ io.on('connection', socket => {
     socket.broadcast.emit('channel', 'A persion has connected');
 });
 
-io.on('chat-room', socket => {
-    socket.broadcast.emit(socket.data)
-});
+// io.on('chat-room', socket => {
+    // socket.broadcast.emit(socket.data)
+// });
 require("dotenv/config");
 const bodyParser = require("body-parser");
 
