@@ -11,11 +11,14 @@ var userSchema = mongoose.Schema({
   },
   userPhoto: {
     type: String,
-    required: true,
   },
-  registeredEvents: {
-    type: Array(String),
-    default: [],
+  userLatitue: {
+    type: Number,
+    required: true
+  },
+  userLongitude: {
+    type: Number,
+    required: true
   }
 });
 

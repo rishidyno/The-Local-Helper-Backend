@@ -4,7 +4,8 @@ const cors = require("cors");
 const user = require("./routes/user");
 const ip = require("ip");
 // const groupService = require("./services/group_service");
-const io = require('socket.io')(3000);
+const port = process.env.PORT || 8080;
+const io = require('socket.io')(port);
 
 // io.on('connection', socket => {
 //     console.log('connection')
@@ -19,7 +20,6 @@ require("dotenv/config");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 8080;
 
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, () => {
     console.log("Connected to MongoDB");

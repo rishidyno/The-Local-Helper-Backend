@@ -5,6 +5,11 @@ const jwt = require("jsonwebtoken");
 const verify = require("./verify_token");
 const fs = require('fs');
 
+router.get('/all', async (req, res) => {
+    let users = await Users.find({});
+    res.send(users);
+});
+
 router.get("/:name", verify, (req, res) => {
     try {
         User.findOne({ userName: req.params.name }, (err, user) => {
@@ -82,7 +87,7 @@ router.post("/create", async (req, res) => {
             //         } else console.log("The file was saved!");
             //     });
             // }
-            req.body.userPhoto = `https://festify-iiitl.herokuapp.com/images/${req.body.userName}.png`;
+            // req.body.userPhoto = `https://festify-iiitl.herokuapp.com/images/${req.body.userName}.png`;
             await User.create(req.body, (err, user) => {
                 if (err) {
                     console.log(err);
