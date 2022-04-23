@@ -53,16 +53,10 @@ router.post("/login", async (req, res) => {
 
 router.post("/create", async (req, res) => {
     try {
-        let a1, a2;
-        a1 = await User.findOne({ userEmail: req.body.userEmail });
+        let a2;
         a2 = await User.findOne({ userName: req.body.userName });
 
-        if (a1 !== null) {
-            res.status(400).json({
-                status: 0,
-                message: "User alredy exists please use a different email",
-            });
-        } else if (a2 !== null) {
+        if (a2 !== null) {
             res.status(400).json({
                 status: 0,
                 message: "User alredy exists please use a different username",
