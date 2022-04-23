@@ -6,7 +6,7 @@ const ip = require("ip");
 // const groupService = require("./services/group_service");
 const port = process.env.PORT || 8080;
 const port_sockets = process.env.PORT || 3000;
-const io = require('socket.io')(port);
+const io = require('socket.io')(port_sockets);
 
 // io.on('connection', socket => {
 //     console.log('connection')
