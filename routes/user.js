@@ -6,8 +6,14 @@ const verify = require("./verify_token");
 const fs = require('fs');
 
 router.get('/all', async (req, res) => {
-    let users = await Users.find({});
-    res.send(users);
+    try {
+        let users = await User.find({});
+        console.log(users);
+        res.send(users);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ status: 0, message: err });
+    }
 });
 
 router.get("/:name", verify, (req, res) => {
@@ -34,7 +40,6 @@ router.post("/login", async (req, res) => {
     try {
         let usernameOrEmail = await req.body.usernameOrEmail;
         let password = await req.body.password;
-        let user;
         if (usernameOrEmail.includes("@")) {
             user = await User.findOne({ userEmail: usernameOrEmail, userPassword: password });
         } else {

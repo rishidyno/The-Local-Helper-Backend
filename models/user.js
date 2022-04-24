@@ -12,12 +12,12 @@ var userSchema = mongoose.Schema({
   userPhoto: {
     type: String,
   },
-  userLatitue: {
-    type: Number,
+  userLatitude: {
+    type: String,
     required: true
   },
   userLongitude: {
-    type: Number,
+    type: String,
     required: true
   }
 });
